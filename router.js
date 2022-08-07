@@ -2,8 +2,12 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/', (req, res) => {
-  res.send('1era ruta del servidor');
-});
+const errorHandler = require('./middlewares/errorHandler');
+const { getProducts, productById } = require('./controllers/fakeApiController');
+
+router.get('/', getProducts);
+router.get('/:id', productById);
+
+router.use(errorHandler.notFound);
 
 module.exports = router;
