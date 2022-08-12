@@ -10,6 +10,10 @@ const {
   getProductsByCategories,
   getFirstUsers,
   getMostExpensiveProducts,
+  getAllBigCarts,
+  getAllCarts,
+  getAllCategories,
+  getAllUsers,
 } = require('./controllers/fakeApiController');
 const date = require('./middlewares/datesMiddleware');
 
@@ -20,6 +24,10 @@ router.get('/products/categories', getProductsByCategories);
 router.get('/users/firsts', getFirstUsers);
 router.get('/prices', getProductPrices);
 router.get('/expensive', getMostExpensiveProducts);
+router.get('/bigcarts', getAllBigCarts);
+router.get('/carts', getAllCarts);
+router.get('/categories', getAllCategories);
+router.get('/users', getAllUsers);
 router.get('/products/:id', getProductById);
 
 router.use(errorHandler.notFound);
